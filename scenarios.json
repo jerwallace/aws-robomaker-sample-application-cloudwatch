@@ -31,14 +31,14 @@
 	      ],
 		"params": {
 			"failureBehavior": "Fail",
-			"iamRole": "arn:aws:iam::461812446130:role/robomaker-simulation-role-us-west-2",
+			"iamRole": "arn:aws:iam::461812446130:role/robomaker-simulation-role-batch-us-west-2",
 			"maxJobDurationInSeconds": 600,
 			"outputLocation": {
-				"s3Bucket": "cicd-s3bucket-nqh6b2u44yp2",
+				"s3Bucket": "jeremy-webinar-3564",
 				"s3Prefix": "simulation_job_output"
 			},
 			"robotApplications": [{
-				"application": "arn:aws:robomaker:us-west-2:461812446130:robot-application/RobotApplication-dafNLAfgFVqa/1578670254551",
+				"application": "arn:aws:robomaker:us-west-2:461812446130:robot-application/RobotApplication-nq24uhyb9yLp",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
 					"launchFile": "await_commands.launch",
@@ -46,7 +46,7 @@
 				}
 			}],
 			"simulationApplications": [{
-				"application": "arn:aws:robomaker:us-west-2:461812446130:simulation-application/SimulationApplication-YG95TofZ6TJM/1578670253883",
+				"application": "arn:aws:robomaker:us-west-2:461812446130:simulation-application/SimulationApplication-VGMui0Bg2eVt",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
                     "packageName": "cloudwatch_simulation",
