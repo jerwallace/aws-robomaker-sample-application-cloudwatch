@@ -1,14 +1,13 @@
 version: 0.2 
 env:
   variables:
-    S3_BUCKET: batch-sim-assets
+    S3_BUCKET: cicd-with-batch-s3bucket-be7dvg5vob9
     APP_NAME: cicd
     CACHE_DIR: cache
     ROBOT_WS: robot_ws
     SIMULATION_WS: simulation_ws
     ROS_VERSION: kinetic
 phases: 
-# If using ECR, you do not need the install step. If using docker.io/ros:kinetic image, include the below install steps to setup colcon. 
 #  install: 
 #    commands: 
 #       - apt-get update
