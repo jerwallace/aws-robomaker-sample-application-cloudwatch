@@ -1,7 +1,7 @@
 version: 0.2 
 env:
   variables:
-    S3_BUCKET: cicd-s3bucket-nqh6b2u44yp2
+    S3_BUCKET: batch-sim-assets
     APP_NAME: cicd
     CACHE_DIR: cache
     ROBOT_WS: robot_ws
