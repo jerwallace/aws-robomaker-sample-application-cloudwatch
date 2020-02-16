@@ -55,8 +55,8 @@
 			}],
 			"vpcConfig": {
 				"assignPublicIp": true,
-				"securityGroups": ["sg-054171b5d947b6cdb"],
-				"subnets": ["subnet-01d357faab803cec8", "subnet-0a37febe8d8614640"]
+				"subnets": [ "subnet-0502ad768ed07bba5", "subnet-05a1f02102073f21f" ],
+            	"securityGroups": [ "sg-0c7cc40f7c289e2f8" ]
 			}
 		}
 	}]
