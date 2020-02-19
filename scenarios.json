@@ -1,5 +1,4 @@
 {
-	"wait": 5,
 	"scenarios": {
 	    "QuickNavBookStore": {
 	      "robotEnvironmentVariables": {
@@ -22,12 +21,24 @@
 	        "NAVIGATION_SUCCESS_COUNT": "3",
 	        "SIMULATION_WORLD": "bookstore"
 	      }
+	    },
+	    "5NavsInBookStore": {
+	      "robotEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-west-2"
+	      },
+	      "simEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-west-2",
+	        "TURTLEBOT3_MODEL": "waffle_pi",
+	        "NAVIGATION_SUCCESS_COUNT": "5",
+	        "SIMULATION_WORLD": "bookstore"
+	      }
 	    }
 	},
 	"simulations": [{
 		"scenarios": [
-			"MultiNavBookStor22e",
-	        "QuickNavBookStore"
+			"MultiNavBookStore",
+	        "QuickNavBookStore",
+	        "5NavsInBookStore"
 	      ],
 		"params": {
 			"failureBehavior": "Fail",
@@ -46,7 +57,7 @@
 				}
 			}],
 			"simulationApplications": [{
-				"application": "arn:aws:robomaker:us-west-2:461812446130:simulation-application/SimulationApplication-VGMui0Bg2eVt/1581859998490",
+				"application": "a",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
                     "packageName": "cloudwatch_simulation",
@@ -55,8 +66,8 @@
 			}],
 			"vpcConfig": {
 				"assignPublicIp": true,
-				"subnets": [ "subnet-0502ad768ed07bba5", "subnet-05a1f02102073f21f" ],
-            	"securityGroups": [ "sg-0c7cc40f7c289e2f8" ]
+				"subnets": [ "<SUBNET_ID>", "<SUBNET_ID_2>" ],
+            	"securityGroups": [ "<SECURITY_GROUP>" ]
 			}
 		}
 	}]
