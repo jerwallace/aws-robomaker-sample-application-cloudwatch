@@ -1,4 +1,5 @@
 {
+	"wait": 5,
 	"scenarios": {
 	    "QuickNavBookStore": {
 	      "robotEnvironmentVariables": {
@@ -21,24 +22,12 @@
 	        "NAVIGATION_SUCCESS_COUNT": "3",
 	        "SIMULATION_WORLD": "bookstore"
 	      }
-	    },
-	    "5NavsInBookStore": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "5",
-	        "SIMULATION_WORLD": "bookstore"
-	      }
 	    }
 	},
 	"simulations": [{
 		"scenarios": [
 			"MultiNavBookStore",
-	        "QuickNavBookStore",
-	        "5NavsInBookStore"
+	        "QuickNavBookStore"
 	      ],
 		"params": {
 			"failureBehavior": "Fail",
@@ -66,8 +55,8 @@
 			}],
 			"vpcConfig": {
 				"assignPublicIp": true,
-				"subnets": [ "<SUBNET_ID>", "<SUBNET_ID_2>" ],
-            	"securityGroups": [ "<SECURITY_GROUP>" ]
+				"subnets": [ "subnet-0502ad768ed07bba5", "subnet-05a1f02102073f21f" ],
+            	"securityGroups": [ "sg-0c7cc40f7c289e2f8" ]
 			}
 		}
 	}]
