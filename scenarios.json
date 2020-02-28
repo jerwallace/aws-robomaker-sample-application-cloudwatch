@@ -29,7 +29,7 @@
 	      "simEnvironmentVariables": {
 	        "ROS_AWS_REGION": "us-west-2",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "8",
+	        "NAVIGATION_SUCCESS_COUNT": "6",
 	        "SIMULATION_WORLD": "bookstore"
 	      }
 	    },
@@ -62,7 +62,7 @@
 	      "simEnvironmentVariables": {
 	        "ROS_AWS_REGION": "us-west-2",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "8",
+	        "NAVIGATION_SUCCESS_COUNT": "6",
 	        "SIMULATION_WORLD": "small_house"
 	      }
 	    }
