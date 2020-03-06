@@ -18,7 +18,7 @@
 	      "simEnvironmentVariables": {
 	        "ROS_AWS_REGION": "us-west-2",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "4",
+	        "NAVIGATION_SUCCESS_COUNT": "2",
 	        "SIMULATION_WORLD": "bookstore"
 	      }
 	    },
@@ -29,7 +29,7 @@
 	      "simEnvironmentVariables": {
 	        "ROS_AWS_REGION": "us-west-2",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "9",
+	        "NAVIGATION_SUCCESS_COUNT": "3",
 	        "SIMULATION_WORLD": "bookstore"
 	      }
 	    },
@@ -51,7 +51,7 @@
 	      "simEnvironmentVariables": {
 	        "ROS_AWS_REGION": "us-west-2",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "4",
+	        "NAVIGATION_SUCCESS_COUNT": "2",
 	        "SIMULATION_WORLD": "small_house"
 	      }
 	    },
@@ -62,7 +62,7 @@
 	      "simEnvironmentVariables": {
 	        "ROS_AWS_REGION": "us-west-2",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "9",
+	        "NAVIGATION_SUCCESS_COUNT": "3",
 	        "SIMULATION_WORLD": "small_house"
 	      }
 	    }
