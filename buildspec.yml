@@ -30,8 +30,9 @@ phases:
 #      - rosdep install --from-paths ./$ROBOT_WS/src --ignore-src -r -y
 #      - rosws update --target-workspace ./$SIMULATION_WS
 #      - rosdep install --from-paths ./$SIMULATION_WS/src --ignore-src -r -y
-#  build: 
-#    commands: 
+  build: 
+    commands: 
+       - echo "pass"
 #      - COLCON_LOG_PATH="$CACHE_DIR/$ROBOT_WS/logs" colcon build --base-paths "./$ROBOT_WS" --build-base "$CACHE_DIR/$ROBOT_WS/build" --install-base "$CACHE_DIR/$ROBOT_WS/install"
 #      - COLCON_LOG_PATH="$CACHE_DIR/$SIMULATION_WS/logs" colcon build --base-paths "./$SIMULATION_WS" --build-base "$CACHE_DIR/$SIMULATION_WS/build" --install-base "$CACHE_DIR/$SIMULATION_WS/install"
 #  post_build: 
