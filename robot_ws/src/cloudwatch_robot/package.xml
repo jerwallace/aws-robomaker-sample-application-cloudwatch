@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>cloudwatch_robot</name>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <description>
   AWS RoboMaker robot package that provides a sample application for integrating AWS CloudWatch with ROS.
   </description>
@@ -28,12 +28,18 @@
   <depend>cloudwatch_metrics_common</depend>
   <depend>aws_common</depend>
   <depend>aws_ros1_common</depend>
-
-
+  <depend>ros_monitoring_msgs</depend>
+  
   <!-- HealthMetricCollector -->
   <depend>health_metric_collector</depend>
 
   <!-- Turtlebot -->
-  <depend>turtlebot3</depend>
   <depend>turtlebot3_msgs</depend>
+  <depend>robot_state_publisher</depend>
+  
+  <exec_depend>turtlebot3_bringup</exec_depend>
+  <!-- Required to install .rviz model-->
+  <depend>turtlebot3_description</depend>
+
+  <depend>turtlebot3_description_reduced_mesh</depend>
 </package>
