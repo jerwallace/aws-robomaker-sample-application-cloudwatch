@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>aws_robomaker_simulation_common</name>
-  <version>1.0.0</version>
+  <version>1.2.0</version>
   <description>
     AWS RoboMaker simulation package for commonly used nodes and helpers.
   </description>
@@ -9,6 +9,7 @@
   <author email="ros-contributions@amazon.com">AWS RoboMaker</author>
   <maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>turtlebot3_navigation</depend>
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>gazebo</exec_depend>
   <exec_depend>gazebo_plugins</exec_depend>
