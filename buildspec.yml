@@ -9,27 +9,11 @@ env:
     ROS_VERSION: melodic
     NAV_STACK_VERSION: 1.4
 phases: 
-  install: 
-    commands: 
-       - apt-get update
-       - apt-get install -y python3-pip python3-apt apt-transport-https ca-certificates wget
-       - wget http://packages.osrfoundation.org/gazebo.key 
-       - apt-key add gazebo.key
-       - echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list
-       - apt-get update
-       - pip install --upgrade "pip < 21.0"
-       - pip3 install -U setuptools pip
-       - pip3 install colcon-ros-bundle
-       - pip3 install awscli
   pre_build:
     commands:
       - . /opt/ros/$ROS_VERSION/setup.sh
-      - rosdep update
-      - sudo rosdep fix-permissions
       - rosws update --target-workspace ./$ROBOT_WS
-      - rosdep install --from-paths ./$ROBOT_WS/src --ignore-src -r -y
       - rosws update --target-workspace ./$SIMULATION_WS
-      - rosdep install --from-paths ./$SIMULATION_WS/src --ignore-src -r -y
   build: 
     commands: 
       - COLCON_LOG_PATH="$CACHE_DIR/$ROBOT_WS/logs" colcon build --base-paths "./$ROBOT_WS" --build-base "$CACHE_DIR/$ROBOT_WS/build" --install-base "$CACHE_DIR/$ROBOT_WS/install"
