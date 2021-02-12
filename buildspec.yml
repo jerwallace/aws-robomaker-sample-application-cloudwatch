@@ -6,7 +6,7 @@ env:
     CACHE_DIR: cache
     ROBOT_WS: robot_ws
     SIMULATION_WS: simulation_ws
-    ROS_VERSION: kinetic
+    ROS_VERSION: melodic
     NAV_STACK_VERSION: 1.4
 phases: 
 # If using ECR, you do not need the install step. If using docker.io/ros:kinetic image, include the below install steps to setup colcon. 
