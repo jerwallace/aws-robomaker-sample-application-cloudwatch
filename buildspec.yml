@@ -11,11 +11,12 @@ env:
 phases: 
   install: 
     commands: 
+       - apt-get update
+       - apt-get install -y python3-pip python3-apt apt-transport-https ca-certificates wget
        - wget http://packages.osrfoundation.org/gazebo.key 
        - apt-key add gazebo.key
        - echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list
        - apt-get update
-       - apt-get install -y python3-pip python3-apt apt-transport-https ca-certificates wget
        - pip3 install -U setuptools pip
        - pip3 install colcon-ros-bundle
        - pip3 install awscli
