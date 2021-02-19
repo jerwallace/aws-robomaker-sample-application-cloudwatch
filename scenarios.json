@@ -51,7 +51,11 @@
 				"launchConfig": {
                     "packageName": "cloudwatch_simulation",
                     "launchFile": "worlds.launch"
-				}
+				},
+			   "worldConfigs": [
+                 {
+                            "world": "arn:aws:robomaker:us-east-1:461812446130:world/generation-4hgxd9q42lnf/world-6"
+                 }
 			}],
 			"vpcConfig": {
 				"assignPublicIp": true,
