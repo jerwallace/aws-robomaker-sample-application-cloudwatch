@@ -31,14 +31,12 @@
 		],
 		"params": {
 			"failureBehavior": "Fail",
-			"iamRole": "arn:aws:iam::461812446130:role/robomaker-simulation-role-us-east-1",
 			"maxJobDurationInSeconds": 600,
 			"outputLocation": {
 				"s3Bucket": "cicd-s3bucket-nqh6b2u44yp2",
 				"s3Prefix": "simulation_job_output"
 			},
 			"robotApplications": [{
-				"application": "arn:aws:robomaker:us-east-1:461812446130:robot-application/RobotApplication-dafNLAfgFVqa/1578670254551",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
 					"launchFile": "await_commands.launch",
@@ -46,7 +44,6 @@
 				}
 			}],
 			"simulationApplications": [{
-				"application": "arn:aws:robomaker:us-east-1:461812446130:simulation-application/SimulationApplication-YG95TofZ6TJM/1578670253883",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
 					"packageName": "cloudwatch_simulation",
