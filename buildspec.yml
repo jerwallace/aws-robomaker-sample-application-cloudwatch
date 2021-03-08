@@ -3,7 +3,7 @@ env:
   variables:
     S3_BUCKET: cicd-s3bucket-nqh6b2u44yp2
     APP_NAME: cicd
-    CACHE_DIR: cache
+    CACHE_DIR: /cache
     ROBOT_WS: robot_ws
     SIMULATION_WS: simulation_ws
     ROS_VERSION: melodic
@@ -11,7 +11,10 @@ env:
 phases: 
   pre_build:
     commands:
+      - apt update
       - . /opt/ros/$ROS_VERSION/setup.sh
+      - rosdep update
+      - rosdep fix-permissions
       - rosws update --target-workspace ./$ROBOT_WS
       - rosws update --target-workspace ./$SIMULATION_WS
   build: 
@@ -26,5 +29,5 @@ phases:
       - aws s3 cp $CACHE_DIR/$SIMULATION_WS/bundle/output.tar s3://$S3_BUCKET/bundles/x86/simulationApp.tar
 cache:
   paths:
-    - 'cache/**/*'
+    - '/cache/**/*'
     
