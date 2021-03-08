@@ -52,12 +52,7 @@
 				"worldConfigs": [{
 					"world": "arn:aws:robomaker:us-east-1:461812446130:world/generation-4hgxd9q42lnf/world-6"
 				}]
-			}],
-			"vpcConfig": {
-				"assignPublicIp": true,
-				"securityGroups": ["sg-0bc51ec804e017cfc"],
-				"subnets": ["subnet-0548e9e7874173a3d", "subnet-09192b43800bc6593"]
-			}
+			}]
 		}
 	}]
 }
