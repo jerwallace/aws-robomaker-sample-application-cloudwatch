@@ -1,91 +1,42 @@
 {
 	"scenarios": {
-	    "ShortNavigationBookStore": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "1",
-	        "SIMULATION_WORLD": "bookstore"
-	      }
-	    },
-	    "MediumNavigationBookStore": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "2",
-	        "SIMULATION_WORLD": "bookstore"
-	      }
-	    },
-	    "LongNavigationBookStore": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "3",
-	        "SIMULATION_WORLD": "bookstore"
-	      }
-	    },
-	    "ShortNavigationSmallHouse": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "1",
-	        "SIMULATION_WORLD": "small_house"
-	      }
-	    },
-	    "MediumNavigationSmallHouse": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "2",
-	        "SIMULATION_WORLD": "small_house"
-	      }
-	    },
-	    "LongNavigationSmallHouse": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "3",
-	        "SIMULATION_WORLD": "small_house"
-	      }
-	    }
+		"QuickNavBookStore": {
+			"robotEnvironmentVariables": {
+				"ROS_AWS_REGION": "us-east-1"
+			},
+			"simEnvironmentVariables": {
+				"ROS_AWS_REGION": "us-east-1",
+				"TURTLEBOT3_MODEL": "waffle_pi",
+				"NAVIGATION_SUCCESS_COUNT": "1",
+				"SIMULATION_WORLD": "bookstore"
+			}
+		},
+		"MultiNavBookStore": {
+			"robotEnvironmentVariables": {
+				"ROS_AWS_REGION": "us-east-1"
+			},
+			"simEnvironmentVariables": {
+				"ROS_AWS_REGION": "us-east-1",
+				"TURTLEBOT3_MODEL": "waffle_pi",
+				"NAVIGATION_SUCCESS_COUNT": "3",
+				"SIMULATION_WORLD": "bookstore"
+			}
+		}
 	},
 	"simulations": [{
 		"scenarios": [
-			"ShortNavigationBookStore",
-			"MediumNavigationBookStore",
-			"LongNavigationBookStore",
-			"ShortNavigationSmallHouse",
-			"MediumNavigationSmallHouse",
-			"LongNavigationSmallHouse"
-	      ],
+			"MultiNavBookStore",
+			"QuickNavBookStore"
+		],
 		"params": {
 			"failureBehavior": "Fail",
-			"iamRole": "arn:aws:iam::461812446130:role/robomaker-simulation-role-batch-us-west-2",
 			"maxJobDurationInSeconds": 600,
 			"outputLocation": {
 				"s3Bucket": "jeremy-webinar-3564",
 				"s3Prefix": "simulation_job_output"
 			},
 			"robotApplications": [{
-				"application": "arn:aws:robomaker:us-west-2:461812446130:robot-application/RobotApplication-nq24uhyb9yLp/1581859998040",
+
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
 					"launchFile": "await_commands.launch",
@@ -93,18 +44,15 @@
 				}
 			}],
 			"simulationApplications": [{
-				"application": "arn:aws:robomaker:us-west-2:461812446130:simulation-application/SimulationApplication-VGMui0Bg2eVt/1581859998490",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
-                    "packageName": "cloudwatch_simulation",
-                    "launchFile": "worlds.launch"
-				}
-			}],
-			"vpcConfig": {
-				"assignPublicIp": true,
-				"subnets": [ "subnet-0502ad768ed07bba5", "subnet-05a1f02102073f21f" ],
-            	"securityGroups": [ "sg-0c7cc40f7c289e2f8" ]
-			}
+					"packageName": "cloudwatch_simulation",
+					"launchFile": "worlds.launch"
+				},
+				"worldConfigs": [{
+					"world": "arn:aws:robomaker:us-east-1:461812446130:world/generation-4hgxd9q42lnf/world-6"
+				}]
+			}]
 		}
 	}]
 }

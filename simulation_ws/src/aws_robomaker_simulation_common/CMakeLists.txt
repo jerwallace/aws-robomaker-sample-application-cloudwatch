@@ -3,7 +3,6 @@ project(aws_robomaker_simulation_common)
 
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
-  turtlebot3_description
   turtlebot3_navigation  # required for copy of .rviz file
 )
 
@@ -15,7 +14,7 @@ install(DIRECTORY worlds
 )
 
 catkin_install_python(PROGRAMS 
-  nodes/route_manager
+  nodes/route_manager.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
