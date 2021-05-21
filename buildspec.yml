@@ -1,33 +1,19 @@
 version: 0.2 
 env:
   variables:
-    S3_BUCKET: cicd-stack-testing-s3bucket-10qkljq0wnwzl
-    APP_NAME: cicd
-    CACHE_DIR: /cache
-    ROBOT_WS: robot_ws
-    SIMULATION_WS: simulation_ws
-    ROS_VERSION: melodic
-    NAV_STACK_VERSION: 1.4
+    ECR_URI: 310714472748.dkr.ecr.us-east-1.amazonaws.com
+    REGION: us-east-1
+    IMAGE_NAME: ros-melodic-example
+    RELEASE: latest
 phases: 
   pre_build:
     commands:
-      - apt update
-      - . /opt/ros/$ROS_VERSION/setup.sh
-      - rosdep update
-      - rosdep fix-permissions
-      - rosws update --target-workspace ./$ROBOT_WS
-      - rosws update --target-workspace ./$SIMULATION_WS
+      - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ECR_URI 
   build: 
     commands: 
-      - COLCON_LOG_PATH="$CACHE_DIR/$ROBOT_WS/logs" colcon build --base-paths "./$ROBOT_WS" --build-base "$CACHE_DIR/$ROBOT_WS/build" --install-base "$CACHE_DIR/$ROBOT_WS/install"
-      - COLCON_LOG_PATH="$CACHE_DIR/$SIMULATION_WS/logs" colcon build --base-paths "./$SIMULATION_WS" --build-base "$CACHE_DIR/$SIMULATION_WS/build" --install-base "$CACHE_DIR/$SIMULATION_WS/install"
+      - docker build -f example.dockerfile -t $IMAGE_NAME .
+      - docker tag $IMAGE_NAME:$RELEASE $ECR_URI/$IMAGE_NAME:$RELEASE
   post_build: 
     commands: 
-      - COLCON_LOG_PATH="$CACHE_DIR/$ROBOT_WS/logs" colcon bundle --base-paths "./$ROBOT_WS" --build-base "$CACHE_DIR/$ROBOT_WS/build" --install-base "$CACHE_DIR/$ROBOT_WS/install" --bundle-base "$CACHE_DIR/$ROBOT_WS/bundle"
-      - COLCON_LOG_PATH="$CACHE_DIR/$SIMULATION_WS/logs" colcon bundle --base-paths "./$SIMULATION_WS" --build-base "$CACHE_DIR/$SIMULATION_WS/build" --install-base "$CACHE_DIR/$SIMULATION_WS/install" --bundle-base "$CACHE_DIR/$SIMULATION_WS/bundle"
-      - aws s3 cp $CACHE_DIR/$ROBOT_WS/bundle/output.tar s3://$S3_BUCKET/bundles/x86/robotApp.tar 
-      - aws s3 cp $CACHE_DIR/$SIMULATION_WS/bundle/output.tar s3://$S3_BUCKET/bundles/x86/simulationApp.tar
-cache:
-  paths:
-    - '/cache/**/*'
+      - docker push $ECR_URI/$IMAGE_NAME:$RELEASE
     
