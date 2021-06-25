@@ -13,6 +13,8 @@ phases:
     commands:
       - apt update
       - . /opt/ros/$ROS_VERSION/setup.sh
+      - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
+      - wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
       - rosdep update
       - rosdep fix-permissions
       - rosws update --target-workspace ./$ROBOT_WS
