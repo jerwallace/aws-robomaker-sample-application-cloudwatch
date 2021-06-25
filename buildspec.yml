@@ -1,7 +1,7 @@
 version: 0.2 
 env:
   variables:
-    S3_BUCKET: cicd-stack-testing-s3bucket-10qkljq0wnwzl
+    S3_BUCKET: cicd-s3bucket-k0oj9mbhrn62
     APP_NAME: cicd
     CACHE_DIR: /cache
     ROBOT_WS: robot_ws
