@@ -3,7 +3,7 @@ env:
   variables:
     S3_BUCKET: cicd-s3bucket-k0oj9mbhrn62
     APP_NAME: cicd
-    CACHE_DIR: /cache
+    CACHE_DIR: /aws-robomaker-sample-application-cloudwatch
     ROBOT_WS: robot_ws
     SIMULATION_WS: simulation_ws
     ROS_VERSION: melodic
