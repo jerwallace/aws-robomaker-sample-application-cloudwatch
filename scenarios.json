@@ -2,10 +2,10 @@
 	"scenarios": {
 	    "QuickNavBookStore": {
 	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
+	        "ROS_AWS_REGION": "us-east-1"
 	      },
 	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
+	        "ROS_AWS_REGION": "us-east-1",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
 	        "NAVIGATION_SUCCESS_COUNT": "1",
 	        "SIMULATION_WORLD": "bookstore"
@@ -13,10 +13,10 @@
 	    },
 	    "MultiNavBookStore": {
 	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
+	        "ROS_AWS_REGION": "us-east-1"
 	      },
 	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
+	        "ROS_AWS_REGION": "us-east-1",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
 	        "NAVIGATION_SUCCESS_COUNT": "3",
 	        "SIMULATION_WORLD": "bookstore"
@@ -48,8 +48,8 @@
 				"application": "arn:aws:robomaker:us-east-1:661453023571:simulation-application/SimulationApplication-aDEVM6zDabnn/1624659752122",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
-                    "packageName": "test_nodes",
-                    "launchFile": "test.launch"
+                    "packageName": "cloudwatch_simulation",
+                    "launchFile": "test_world.launch"
 				}
 			}],
 			"vpcConfig": {
