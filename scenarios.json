@@ -1,42 +1,43 @@
 {
 	"scenarios": {
-		"QuickNavBookStore": {
-			"robotEnvironmentVariables": {
-				"ROS_AWS_REGION": "us-east-1"
-			},
-			"simEnvironmentVariables": {
-				"ROS_AWS_REGION": "us-east-1",
-				"TURTLEBOT3_MODEL": "waffle_pi",
-				"NAVIGATION_SUCCESS_COUNT": "1",
-				"SIMULATION_WORLD": "bookstore"
-			}
-		},
-		"MultiNavBookStore": {
-			"robotEnvironmentVariables": {
-				"ROS_AWS_REGION": "us-east-1"
-			},
-			"simEnvironmentVariables": {
-				"ROS_AWS_REGION": "us-east-1",
-				"TURTLEBOT3_MODEL": "waffle_pi",
-				"NAVIGATION_SUCCESS_COUNT": "3",
-				"SIMULATION_WORLD": "bookstore"
-			}
-		}
+	    "QuickNavBookStore": {
+	      "robotEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-west-2"
+	      },
+	      "simEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-west-2",
+	        "TURTLEBOT3_MODEL": "waffle_pi",
+	        "NAVIGATION_SUCCESS_COUNT": "1",
+	        "SIMULATION_WORLD": "bookstore"
+	      }
+	    },
+	    "MultiNavBookStore": {
+	      "robotEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-west-2"
+	      },
+	      "simEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-west-2",
+	        "TURTLEBOT3_MODEL": "waffle_pi",
+	        "NAVIGATION_SUCCESS_COUNT": "3",
+	        "SIMULATION_WORLD": "bookstore"
+	      }
+	    }
 	},
 	"simulations": [{
 		"scenarios": [
 			"MultiNavBookStore",
-			"QuickNavBookStore"
-		],
+	                "QuickNavBookStore"
+	             ],
 		"params": {
 			"failureBehavior": "Fail",
+			"iamRole": "arn:aws:iam::661453023571:role/cicd-RoboMakerSimulationRole-J8FNNVFUM7B5",
 			"maxJobDurationInSeconds": 600,
 			"outputLocation": {
-				"s3Bucket": "jeremy-webinar-3564",
-				"s3Prefix": "simulation_job_output"
+				"s3Bucket": "cicd-s3bucket-k0oj9mbhrn62",
+				"s3Prefix": "logs"
 			},
 			"robotApplications": [{
-
+				"application": "arn:aws:robomaker:us-east-1:661453023571:robot-application/RobotApplication-XaV1VIf5LfDi/1624659752306",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
 					"launchFile": "await_commands.launch",
@@ -44,15 +45,18 @@
 				}
 			}],
 			"simulationApplications": [{
+				"application": "arn:aws:robomaker:us-east-1:661453023571:simulation-application/SimulationApplication-aDEVM6zDabnn/1624659752122",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
-					"packageName": "cloudwatch_simulation",
-					"launchFile": "worlds.launch"
-				},
-				"worldConfigs": [{
-					"world": "arn:aws:robomaker:us-east-1:461812446130:world/generation-4hgxd9q42lnf/world-6"
-				}]
-			}]
+                    "packageName": "test_nodes",
+                    "launchFile": "test.launch"
+				}
+			}],
+			"vpcConfig": {
+				"assignPublicIp": true,
+				"subnets": [ "subnet-06e9b43d91e75a1c9", "subnet-0af1f95dd62b9b428" ],
+            	"securityGroups": [ "sg-0df7c3305f5c80944" ]
+			}
 		}
 	}]
 }
