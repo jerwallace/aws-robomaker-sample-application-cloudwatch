@@ -8,5 +8,6 @@
  <param name="SIM_TIMEOUT_SECONDS" type="int" value="$(optenv SIM_TIMEOUT_SECONDS 300)" />
  <param name="NAVIGATION_SUCCESS_COUNT" type="int" value="$(optenv NAVIGATION_SUCCESS_COUNT 1)" />
  <node pkg="test_nodes" type="navigation_test.py" name="navigation_test" output="screen" required="true" />
-
+ <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
+ 
 </launch>

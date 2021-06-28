@@ -43,7 +43,8 @@
 				"launchConfig": {
                     "packageName": "cloudwatch_simulation",
                     "launchFile": "test_world.launch"
-				}
+				},
+				"streamUI": true
 			}]
 		}
 	}]
