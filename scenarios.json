@@ -30,14 +30,8 @@
 	             ],
 		"params": {
 			"failureBehavior": "Fail",
-			"iamRole": "arn:aws:iam::661453023571:role/cicd-RoboMakerSimulationRole-J8FNNVFUM7B5",
 			"maxJobDurationInSeconds": 600,
-			"outputLocation": {
-				"s3Bucket": "cicd-s3bucket-k0oj9mbhrn62",
-				"s3Prefix": "logs"
-			},
 			"robotApplications": [{
-				"application": "arn:aws:robomaker:us-east-1:661453023571:robot-application/RobotApplication-XaV1VIf5LfDi/1624659752306",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
 					"launchFile": "await_commands.launch",
@@ -45,18 +39,12 @@
 				}
 			}],
 			"simulationApplications": [{
-				"application": "arn:aws:robomaker:us-east-1:661453023571:simulation-application/SimulationApplication-aDEVM6zDabnn/1624659752122",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
                     "packageName": "cloudwatch_simulation",
                     "launchFile": "test_world.launch"
 				}
-			}],
-			"vpcConfig": {
-				"assignPublicIp": true,
-				"subnets": [ "subnet-06e9b43d91e75a1c9", "subnet-0af1f95dd62b9b428" ],
-            	"securityGroups": [ "sg-0df7c3305f5c80944" ]
-			}
+			}]
 		}
 	}]
 }
