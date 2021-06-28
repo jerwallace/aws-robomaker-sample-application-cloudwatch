@@ -8,7 +8,8 @@
 	        "ROS_AWS_REGION": "us-east-1",
 	        "TURTLEBOT3_MODEL": "waffle_pi",
 	        "NAVIGATION_SUCCESS_COUNT": "1",
-	        "SIMULATION_WORLD": "bookstore"
+	        "SIMULATION_WORLD": "bookstore",
+	        "SOME_ENV_VARIABLE": "test"
 	      }
 	    },
 	    "MultiNavBookStore": {
@@ -26,7 +27,7 @@
 	"simulations": [{
 		"scenarios": [
 			"MultiNavBookStore",
-	                "QuickNavBookStore"
+	        "QuickNavBookStore"
 	             ],
 		"params": {
 			"failureBehavior": "Fail",
