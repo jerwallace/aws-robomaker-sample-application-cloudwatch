@@ -22,12 +22,24 @@
 	        "NAVIGATION_SUCCESS_COUNT": "3",
 	        "SIMULATION_WORLD": "bookstore"
 	      }
+	    },
+	    "ScaleNavBookStore": {
+	      "robotEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-east-1"
+	      },
+	      "simEnvironmentVariables": {
+	        "ROS_AWS_REGION": "us-east-1",
+	        "TURTLEBOT3_MODEL": "waffle_pi",
+	        "NAVIGATION_SUCCESS_COUNT": "30",
+	        "SIMULATION_WORLD": "bookstore"
+	      }
 	    }
 	},
 	"simulations": [{
 		"scenarios": [
 			"MultiNavBookStore",
-	        "QuickNavBookStore"
+	        "QuickNavBookStore",
+	        "ScaleNavBookStore"
 	             ],
 		"params": {
 			"failureBehavior": "Fail",
